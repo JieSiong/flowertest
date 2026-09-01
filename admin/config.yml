@@ -3,19 +3,23 @@ backend:
   branch: main
 
 media_folder: "images"
-public_folder: "/images"
+public_folder: "images"
 
 collections:
   - name: "products"
     label: "Products"
     files:
       - name: "product_list"
-        label: "Product List"
-        file: "index.html"
+        label: "All Products"
+        file: "products.json"
         fields:
-          - { label: "Product ID", name: "id", widget: "string" }
-          - { label: "Product Name", name: "name", widget: "string" }
-          - { label: "Price (RM)", name: "price", widget: "number" }
-          - { label: "Image File", name: "image", widget: "string", required: false }
-          - { label: "Tags", name: "tags", widget: "list" }
-          - { label: "Badge", name: "badge", widget: "string", required: false }
+          - label: "Products List"
+            name: "items"
+            widget: "list"
+            fields:
+              - { label: "Product ID", name: "id", widget: "string" }
+              - { label: "Product Name", name: "name", widget: "string" }
+              - { label: "Price (RM)", name: "price", widget: "number" }
+              - { label: "Image File", name: "image", widget: "string", required: false }
+              - { label: "Tags", name: "tags", widget: "list" }
+              - { label: "Badge", name: "badge", widget: "string", required: false }
