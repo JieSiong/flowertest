@@ -8,11 +8,14 @@ public_folder: ""
 collections:
   - name: "products"
     label: "Products"
-    file: "index.html"
-    fields:
-      - { label: "Product ID", name: "id", widget: "string" }
-      - { label: "Product Name", name: "name", widget: "string" }
-      - { label: "Price (RM)", name: "price", widget: "number" }
-      - { label: "Image File", name: "image", widget: "image", required: false }
-      - { label: "Tags", name: "tags", widget: "list" }
-      - { label: "Badge", name: "badge", widget: "string", required: false }
+    files:
+      - name: "product_list"
+        label: "Product List"
+        file: "index.html"
+        fields:
+          - { label: "Product ID", name: "id", widget: "string" }
+          - { label: "Product Name", name: "name", widget: "string" }
+          - { label: "Price (RM)", name: "price", widget: "number" }
+          - { label: "Image File", name: "image", widget: "image", required: false }
+          - { label: "Tags", name: "tags", widget: "list" }
+          - { label: "Badge", name: "badge", widget: "string", required: false }
