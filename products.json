@@ -1,0 +1,28 @@
+{
+  "items": [
+    {
+      "id": "001",
+      "name": "Pink Rose Bouquet",
+      "price": 118,
+      "image": "pink-rose.jpg.jpeg",
+      "tags": ["Soap Flowers", "Bouquets", "Best Sellers"],
+      "badge": "Best Seller"
+    },
+    {
+      "id": "002",
+      "name": "Blue Romance Bouquet",
+      "price": 100,
+      "image": "blue-romance.jpg.jpeg",
+      "tags": ["Soap Flowers", "Bouquets", "Gift Flowers"],
+      "badge": "Hot"
+    },
+    {
+      "id": "003",
+      "name": "Ivory Charm Bouquet",
+      "price": 55,
+      "image": "ivory-charm.jpg.jpeg",
+      "tags": ["Soap Flowers", "Bouquets"],
+      "badge": ""
+    }
+  ]
+}
