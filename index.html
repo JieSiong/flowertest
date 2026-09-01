@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>JS Flower 💐 — Handcrafted Soap Flower Bouquets</title>
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 <meta name="description" content="JS Flower — beautiful handcrafted soap flower bouquets in Johor, Malaysia. Browse our collection and order directly on WhatsApp.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -695,6 +696,16 @@ renderGrid();
 wireWhatsappLinks();
 checkInitialHash();
 </script>
-
+<script>
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", user => {
+      if (!user) {
+        window.netlifyIdentity.on("login", () => {
+          document.location.href = "/admin/";
+        });
+      }
+    });
+  }
+</script>
 </body>
 </html>
