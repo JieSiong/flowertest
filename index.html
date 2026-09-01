@@ -20,6 +20,7 @@ badge: Hot
 <meta name="description" content="JS Flower — beautiful handcrafted soap flower bouquets in Johor, Malaysia. Browse our collection and order directly on WhatsApp.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Karla:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
@@ -718,6 +719,23 @@ checkInitialHash();
       }
     });
   }
+</script>
+  <script>
+  const SUPABASE_URL = 'https://plseiovgnzqlydrrcmxk.supabase.co';
+  const SUPABASE_KEY = 'sb_publishable_rj2_1N0lWTnlbEK6IjKbPA_zoJXMcRO';
+
+  const _supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+  async function loadProducts() {
+    const { data: products, error } = await _supabase.from('products').select('*');
+    if (error) {
+      console.error('获取商品失败:', error);
+    } else {
+      console.log('成功连接 Supabase！拿到的商品：', products);
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', loadProducts);
 </script>
 </body>
 </html>
