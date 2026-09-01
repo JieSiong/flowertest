@@ -734,27 +734,22 @@ async function loadProducts() {
     return;
   }
 
-  // 找到页面上展示花束卡片的容器
-  const gridContainer = document.getElementById('productGrid') || document.querySelector('.grid') || document.querySelector('.products-grid');
-  
-  if (gridContainer && products.length > 0) {
-    // 清空静态数据
-    gridContainer.innerHTML = '';
+  if (products && products.length > 0) {
+    // 将 Supabase 数据替换网页原本的数据变量
+    if (typeof productsData !== 'undefined') {
+      productsData = products;
+    } else if (typeof FLOWERS !== 'undefined') {
+      FLOWERS = products;
+    } else if (typeof flowers !== 'undefined') {
+      flowers = products;
+    }
 
-    // 将 Supabase 的数据生成 HTML 插入页面
-    products.forEach(item => {
-      const card = document.createElement('div');
-      card.className = 'card';
-      card.innerHTML = `
-        <img src="${item.image_url || 'https://via.placeholder.com/300'}" alt="${item.name}">
-        <div class="card-body">
-          <h3>${item.name}</h3>
-          <p class="description">${item.description || ''}</p>
-          <p class="price">RM ${item.price}</p>
-        </div>
-      `;
-      gridContainer.appendChild(card);
-    });
+    // 重新调用网页原本自带的渲染函数（把以前的排版和 See Details 按钮恢复）
+    if (typeof renderGrid === 'function') {
+      renderGrid();
+    } else if (typeof renderProducts === 'function') {
+      renderProducts();
+    }
   }
 }
 
