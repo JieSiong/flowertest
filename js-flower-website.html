@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JS Flower 💐 — Handcrafted Soap Flower Bouquets</title>
+<meta name="description" content="JS Flower — beautiful handcrafted soap flower bouquets in Johor, Malaysia. Browse our collection and order directly on WhatsApp.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Karla:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ivory:#FBF5EF;
+    --ivory-deep:#F3E9DF;
+    --paper:#FFFDFB;
+    --rose:#E3A6A6;
+    --rose-soft:#F3D9D4;
+    --rose-deep:#B4677A;
+    --rose-ink:#8C4A5C;
+    --sage:#93A382;
+    --sage-deep:#5E6E4E;
+    --ink:#3A2E2C;
+    --ink-soft:#75655F;
+    --line:#E7D9CD;
+    --whatsapp:#25D366;
+    --whatsapp-deep:#1DA851;
+    --radius-soap:28px;
+    --radius-pill:999px;
+    --shadow-soft:0 18px 40px -20px rgba(140,74,92,0.28);
+    --maxw:1180px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--ivory);
+    color:var(--ink);
+    font-family:'Karla',sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,h4{
+    font-family:'Fraunces',serif;
+    font-weight:500;
+    margin:0;
+    color:var(--ink);
+  }
+  a{color:inherit;text-decoration:none;}
+  button{font-family:inherit;cursor:pointer;border:none;background:none;}
+  img,svg{display:block;max-width:100%;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px;}
+  :focus-visible{outline:2px solid var(--rose-deep);outline-offset:3px;}
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.001ms !important;transition-duration:0.001ms !important;}
+  }
+
+  /* ---------- Header ---------- */
+  header.site{
+    position:sticky;top:0;z-index:40;
+    background:rgba(251,245,239,0.88);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid transparent;
+    transition:border-color .3s ease, box-shadow .3s ease;
+  }
+  header.site.scrolled{
+    border-bottom-color:var(--line);
+    box-shadow:0 6px 24px -18px rgba(58,46,44,0.35);
+  }
+  .header-inner{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:16px 28px;max-width:var(--maxw);margin:0 auto;
+  }
+  .brand{
+    font-family:'Fraunces',serif;font-size:22px;font-weight:600;
+    letter-spacing:0.2px;display:flex;align-items:center;gap:6px;
+  }
+  nav.cats{display:flex;gap:26px;}
+  nav.cats button{
+    font-size:14.5px;color:var(--ink-soft);white-space:nowrap;
+    padding:4px 2px;position:relative;
+  }
+  nav.cats button.active{color:var(--rose-ink);}
+  nav.cats button.active::after{
+    content:"";position:absolute;left:0;right:0;bottom:-6px;height:2px;
+    background:var(--rose-deep);border-radius:2px;
+  }
+  .header-actions{display:flex;align-items:center;gap:14px;}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:12px 22px;border-radius:var(--radius-pill);
+    font-size:14.5px;font-weight:600;letter-spacing:0.2px;
+    transition:transform .18s ease, box-shadow .18s ease, background .18s ease;
+  }
+  .btn:hover{transform:translateY(-1px);}
+  .btn-whatsapp{
+    background:var(--whatsapp);color:#fff;
+    box-shadow:0 10px 24px -10px rgba(37,211,102,0.55);
+  }
+  .btn-whatsapp:hover{background:var(--whatsapp-deep);}
+  .btn-outline{
+    background:transparent;color:var(--rose-ink);
+    border:1.5px solid var(--rose-deep);
+  }
+  .btn-outline:hover{background:var(--rose-soft);}
+  .btn-ink{background:var(--ink);color:var(--ivory);}
+  .btn-ink:hover{background:#2a2120;}
+  .hamburger{display:none;width:40px;height:40px;align-items:center;justify-content:center;}
+  .hamburger span, .hamburger span::before, .hamburger span::after{
+    content:"";display:block;width:20px;height:2px;background:var(--ink);
+    position:relative;transition:.2s;
+  }
+  .hamburger span::before{position:absolute;top:-6px;}
+  .hamburger span::after{position:absolute;top:6px;}
+
+  /* ---------- Hero ---------- */
+  .hero{
+    position:relative;overflow:hidden;
+    padding:64px 0 40px;
+  }
+  .hero-grid{
+    display:grid;grid-template-columns:1.05fr 0.95fr;gap:48px;align-items:center;
+  }
+  .eyebrow-note{
+    font-size:13.5px;color:var(--sage-deep);letter-spacing:.3px;margin-bottom:18px;
+    display:flex;align-items:center;gap:8px;
+  }
+  .eyebrow-note .dot{width:6px;height:6px;border-radius:50%;background:var(--sage);}
+  .hero h1{
+    font-size:clamp(40px,6vw,64px);line-height:1.04;font-weight:500;
+    letter-spacing:-0.5px;
+  }
+  .hero h1 em{font-style:italic;color:var(--rose-deep);font-weight:400;}
+  .hero p.lead{
+    margin-top:22px;font-size:18px;color:var(--ink-soft);max-width:44ch;
+  }
+  .hero-cta{display:flex;gap:14px;margin-top:34px;flex-wrap:wrap;}
+  .hero-cta .btn{padding:15px 26px;font-size:15.5px;}
+  .hero-art{position:relative;display:flex;align-items:center;justify-content:center;}
+  .hero-blob{
+    position:absolute;width:420px;height:420px;border-radius:50%;
+    background:radial-gradient(circle at 35% 30%, var(--rose-soft), transparent 70%);
+    filter:blur(6px);
+  }
+  .hero-art svg{position:relative;width:100%;max-width:380px;}
+
+  /* ---------- Section basics ---------- */
+  section{padding:76px 0;}
+  .section-head{max-width:56ch;margin-bottom:40px;}
+  .section-head .kicker{
+    font-size:13.5px;color:var(--sage-deep);margin-bottom:10px;display:block;
+  }
+  .section-head h2{font-size:clamp(28px,4vw,38px);}
+  .section-head p{margin-top:12px;color:var(--ink-soft);}
+
+  /* ---------- Category pills (mobile scroller under hero) ---------- */
+  .cat-scroller{
+    display:flex;gap:10px;overflow-x:auto;padding:4px 28px 6px;
+    scrollbar-width:none;
+  }
+  .cat-scroller::-webkit-scrollbar{display:none;}
+  .pill{
+    flex:0 0 auto;padding:9px 18px;border-radius:var(--radius-pill);
+    border:1.3px solid var(--line);font-size:14px;color:var(--ink-soft);
+    background:var(--paper);transition:.18s;
+  }
+  .pill.active{background:var(--ink);border-color:var(--ink);color:var(--ivory);}
+  .pill:not(.active):hover{border-color:var(--rose-deep);color:var(--rose-ink);}
+
+  /* ---------- Product grid ---------- */
+  .grid{
+    display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));
+    gap:26px;margin-top:8px;
+  }
+  .card{
+    background:var(--paper);border-radius:var(--radius-soap);
+    padding:16px 16px 22px;border:1px solid var(--line);
+    transition:box-shadow .22s ease, transform .22s ease, border-color .22s ease;
+    display:flex;flex-direction:column;
+  }
+  .card:hover{box-shadow:var(--shadow-soft);transform:translateY(-3px);border-color:var(--rose-soft);}
+  .card-media{
+    border-radius:20px;aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;
+    margin-bottom:16px;position:relative;overflow:hidden;
+  }
+  .card-media svg{width:66%;}
+  .badge{
+    position:absolute;top:10px;left:10px;font-size:11.5px;font-weight:700;
+    padding:5px 10px;border-radius:var(--radius-pill);background:var(--paper);
+    color:var(--rose-ink);letter-spacing:.2px;box-shadow:0 4px 12px -4px rgba(58,46,44,0.25);
+  }
+  .card h3{font-size:19px;font-weight:500;}
+  .card .price{color:var(--rose-deep);font-weight:700;font-size:15.5px;margin-top:6px;}
+  .card .see-details{
+    margin-top:16px;padding:11px 0;border-radius:var(--radius-pill);
+    border:1.3px solid var(--ink);font-size:14px;font-weight:600;
+    text-align:center;transition:.18s;
+  }
+  .card .see-details:hover{background:var(--ink);color:var(--ivory);}
+  .empty-state{
+    text-align:center;padding:60px 20px;color:var(--ink-soft);
+    grid-column:1/-1;
+  }
+
+  /* ---------- About ---------- */
+  .about{
+    background:var(--ivory-deep);
+  }
+  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;}
+  .about-art{display:flex;justify-content:center;}
+  .about-art svg{width:100%;max-width:300px;}
+  .about-copy p{color:var(--ink-soft);margin-top:18px;font-size:16.5px;max-width:46ch;}
+
+  /* ---------- Delivery ---------- */
+  .deliver-grid{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:8px;
+  }
+  .deliver-card{
+    background:var(--paper);border:1px solid var(--line);border-radius:20px;
+    padding:26px 24px;
+  }
+  .deliver-card .ic{font-size:26px;margin-bottom:12px;display:block;}
+  .deliver-card h3{font-size:17.5px;margin-bottom:6px;}
+  .deliver-card p{color:var(--ink-soft);font-size:14.5px;margin:0;}
+  .deliver-note{
+    margin-top:26px;padding:18px 22px;border-radius:16px;
+    background:var(--rose-soft);color:var(--rose-ink);font-size:15px;
+    display:flex;align-items:center;gap:10px;
+  }
+
+  /* ---------- Footer ---------- */
+  footer{background:var(--ink);color:var(--ivory);padding:56px 0 28px;}
+  .footer-top{
+    display:flex;justify-content:space-between;align-items:flex-start;
+    flex-wrap:wrap;gap:32px;padding-bottom:36px;border-bottom:1px solid rgba(251,245,239,0.14);
+  }
+  .footer-brand{font-family:'Fraunces',serif;font-size:24px;}
+  .footer-links{display:flex;gap:40px;flex-wrap:wrap;}
+  .footer-col h4{font-size:13px;color:rgba(251,245,239,0.55);letter-spacing:.3px;margin-bottom:12px;font-family:'Karla',sans-serif;font-weight:600;}
+  .footer-col a{display:block;font-size:14.5px;margin-bottom:9px;color:var(--ivory);opacity:.9;}
+  .footer-col a:hover{opacity:1;text-decoration:underline;}
+  .footer-bottom{
+    display:flex;justify-content:space-between;align-items:center;
+    padding-top:22px;font-size:13px;color:rgba(251,245,239,0.55);flex-wrap:wrap;gap:14px;
+  }
+
+  /* ---------- Floating WhatsApp button ---------- */
+  .float-wa{
+    position:fixed;right:22px;bottom:22px;z-index:50;
+    width:60px;height:60px;border-radius:50%;background:var(--whatsapp);
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 14px 30px -8px rgba(37,211,102,0.55);
+    transition:transform .18s ease;
+  }
+  .float-wa:hover{transform:scale(1.07);}
+  .float-wa svg{width:30px;height:30px;}
+  @keyframes pulseOnce{
+    0%{box-shadow:0 0 0 0 rgba(37,211,102,0.55);}
+    70%{box-shadow:0 0 0 16px rgba(37,211,102,0);}
+    100%{box-shadow:0 0 0 0 rgba(37,211,102,0);}
+  }
+  .float-wa.pulse{animation:pulseOnce 1.8s ease-out 1;}
+
+  /* ---------- Product detail overlay ---------- */
+  .detail-overlay{
+    position:fixed;inset:0;background:var(--ivory);z-index:60;
+    overflow-y:auto;transform:translateY(100%);opacity:0;
+    transition:transform .32s cubic-bezier(.22,.8,.36,1), opacity .32s ease;
+    visibility:hidden;
+  }
+  .detail-overlay.open{transform:translateY(0);opacity:1;visibility:visible;}
+  .detail-top{
+    position:sticky;top:0;background:rgba(251,245,239,0.92);backdrop-filter:blur(8px);
+    padding:16px 28px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:14px;z-index:2;
+  }
+  .back-btn{
+    display:flex;align-items:center;gap:8px;font-size:14.5px;font-weight:600;color:var(--ink);
+    padding:8px 6px;
+  }
+  .detail-inner{
+    max-width:980px;margin:0 auto;padding:40px 28px 90px;
+    display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:start;
+  }
+  .detail-media{
+    background:var(--paper);border:1px solid var(--line);border-radius:32px;
+    aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;
+  }
+  .detail-media svg{width:62%;}
+  .detail-copy h2{font-size:clamp(28px,4vw,36px);}
+  .detail-copy .price{color:var(--rose-deep);font-weight:700;font-size:20px;margin-top:10px;}
+  .detail-list{list-style:none;padding:0;margin:26px 0;display:flex;flex-direction:column;gap:10px;}
+  .detail-list li{font-size:15px;color:var(--ink-soft);display:flex;gap:10px;}
+  .detail-cta{
+    margin-top:8px;width:100%;padding:17px 0;font-size:16px;justify-content:center;
+  }
+  .detail-note{margin-top:16px;font-size:13.5px;color:var(--ink-soft);text-align:center;}
+
+  /* ---------- Responsive ---------- */
+  @media (max-width:900px){
+    nav.cats{display:none;}
+    .hero-grid{grid-template-columns:1fr;}
+    .hero-art{order:-1;}
+    .hero-blob{width:280px;height:280px;}
+    .about-grid{grid-template-columns:1fr;}
+    .about-art{order:-1;}
+    .deliver-grid{grid-template-columns:1fr;}
+    .detail-inner{grid-template-columns:1fr;gap:28px;padding-top:28px;}
+    .footer-top{flex-direction:column;}
+  }
+  @media (max-width:560px){
+    .wrap{padding:0 20px;}
+    .header-inner{padding:14px 20px;}
+    section{padding:56px 0;}
+    .hero{padding:36px 0 24px;}
+    .header-actions .btn-text-label{display:none;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ===================== HEADER ===================== -->
+<header class="site" id="siteHeader">
+  <div class="header-inner">
+    <a class="brand" href="#top">JS Flower 💐</a>
+    <nav class="cats" id="headerCats"></nav>
+    <div class="header-actions">
+      <a class="btn btn-whatsapp" id="headerWaBtn" href="#" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor"><path d="M12.04 2c-5.52 0-10 4.48-10 10 0 1.77.46 3.5 1.34 5.02L2 22l5.13-1.35A9.96 9.96 0 0 0 12.04 22c5.52 0 10-4.48 10-10s-4.48-10-10-10Zm0 18.2c-1.6 0-3.16-.43-4.52-1.24l-.32-.19-3.05.8.82-2.97-.21-.31A8.17 8.17 0 0 1 3.84 12c0-4.53 3.68-8.2 8.2-8.2 4.53 0 8.2 3.67 8.2 8.2 0 4.52-3.67 8.2-8.2 8.2Zm4.5-6.13c-.25-.12-1.45-.72-1.68-.8-.22-.08-.39-.12-.55.13-.16.24-.63.8-.78.96-.14.16-.29.18-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.24-1.47-1.38-1.72-.14-.24-.02-.38.11-.5.11-.11.25-.29.37-.43.12-.15.16-.25.24-.41.08-.16.04-.31-.02-.43-.06-.12-.55-1.33-.76-1.82-.2-.48-.4-.42-.55-.42-.14 0-.31-.02-.47-.02-.16 0-.43.06-.66.31-.22.24-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.16 1.75 2.67 4.24 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.45-.59 1.65-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.47-.28Z"/></svg>
+        <span class="btn-text-label">Chat with JS Flower</span>
+      </a>
+      <button class="hamburger" id="hamburgerBtn" aria-label="Open menu"><span></span></button>
+    </div>
+  </div>
+  <div class="cat-scroller" id="mobileCatsWrap" style="display:none;">
+    <div class="cat-scroller" id="mobileCats"></div>
+  </div>
+</header>
+
+<!-- ===================== HERO ===================== -->
+<section class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow-note"><span class="dot"></span>Handcrafted in Johor, Malaysia</span>
+      <h1>Flowers made<br>with <em>love</em> 💐</h1>
+      <p class="lead">Beautiful handcrafted soap flower bouquets, made to make every special moment bloom — and last far longer than fresh ones ever could.</p>
+      <div class="hero-cta">
+        <a class="btn btn-whatsapp" id="heroWaBtn" href="#" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12.04 2c-5.52 0-10 4.48-10 10 0 1.77.46 3.5 1.34 5.02L2 22l5.13-1.35A9.96 9.96 0 0 0 12.04 22c5.52 0 10-4.48 10-10s-4.48-10-10-10Zm0 18.2c-1.6 0-3.16-.43-4.52-1.24l-.32-.19-3.05.8.82-2.97-.21-.31A8.17 8.17 0 0 1 3.84 12c0-4.53 3.68-8.2 8.2-8.2 4.53 0 8.2 3.67 8.2 8.2 0 4.52-3.67 8.2-8.2 8.2Zm4.5-6.13c-.25-.12-1.45-.72-1.68-.8-.22-.08-.39-.12-.55.13-.16.24-.63.8-.78.96-.14.16-.29.18-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.24-1.47-1.38-1.72-.14-.24-.02-.38.11-.5.11-.11.25-.29.37-.43.12-.15.16-.25.24-.41.08-.16.04-.31-.02-.43-.06-.12-.55-1.33-.76-1.82-.2-.48-.4-.42-.55-.42-.14 0-.31-.02-.47-.02-.16 0-.43.06-.66.31-.22.24-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.16 1.75 2.67 4.24 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.45-.59 1.65-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.47-.28Z"/></svg>
+          Order on WhatsApp
+        </a>
+        <a class="btn btn-outline" href="#collection">See the collection</a>
+      </div>
+    </div>
+    <div class="hero-art">
+      <div class="hero-blob"></div>
+      <div id="heroFlower"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CATEGORY BAR (desktop, above grid) ===================== -->
+<div class="cat-scroller" id="gridCats" style="max-width:1180px;margin:0 auto;padding-left:28px;padding-right:28px;"></div>
+
+<!-- ===================== COLLECTION ===================== -->
+<section id="collection">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker">The collection</span>
+      <h2>Every bouquet, handmade to order</h2>
+      <p>Browse our soap flower arrangements below — tap any bouquet to see the full details, then order directly on WhatsApp.</p>
+    </div>
+    <div class="grid" id="productGrid"></div>
+  </div>
+</section>
+
+<!-- ===================== ABOUT ===================== -->
+<section class="about">
+  <div class="wrap about-grid">
+    <div class="about-art" id="aboutFlower"></div>
+    <div class="about-copy">
+      <span class="kicker" style="display:block;margin-bottom:10px;">Our story</span>
+      <h2>Made to make someone smile 💐</h2>
+      <p>At JS Flower, we create beautiful handcrafted soap flower arrangements that are made to last. Whether it's a birthday, anniversary, graduation, or simply a little surprise for someone special, our flowers are made with love to make every moment sweeter.</p>
+      <a class="btn btn-ink" style="margin-top:22px;" href="#collection">Browse the collection</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== DELIVERY ===================== -->
+<section id="delivery">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker">Getting your flowers</span>
+      <h2>Delivery &amp; pick up</h2>
+    </div>
+    <div class="deliver-grid">
+      <div class="deliver-card">
+        <span class="ic">📦</span>
+        <h3>West Malaysia postage</h3>
+        <p>RM8 flat rate, arrives in 1–5 working days.</p>
+      </div>
+      <div class="deliver-card">
+        <span class="ic">📍</span>
+        <h3>Johor self pick up</h3>
+        <p>Available for customers who'd prefer to collect their order in person.</p>
+      </div>
+      <div class="deliver-card">
+        <span class="ic">🛵</span>
+        <h3>Lalamove delivery</h3>
+        <p>Available for local Johor customers. Fee depends on your location.</p>
+      </div>
+    </div>
+    <div class="deliver-note">💬 Please contact JS Flower on WhatsApp to confirm delivery arrangements before ordering.</div>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand">JS Flower 💐</div>
+        <p style="opacity:.75;font-size:14.5px;max-width:32ch;margin-top:10px;">Handcrafted soap flower bouquets, made with love in Johor.</p>
+        <a class="btn btn-whatsapp" id="footerWaBtn" href="#" target="_blank" rel="noopener" style="margin-top:20px;">Order on WhatsApp 💬</a>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Follow along</h4>
+          <a href="#" target="_blank" rel="noopener">Instagram</a>
+          <a href="#" target="_blank" rel="noopener">TikTok</a>
+          <a href="#" id="footerWaLink" target="_blank" rel="noopener">WhatsApp</a>
+        </div>
+        <div class="footer-col">
+          <h4>Information</h4>
+          <a href="#delivery">Delivery information</a>
+          <a href="#" id="footerContactLink" target="_blank" rel="noopener">Contact us</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> JS Flower. All rights reserved.</span>
+      <span>Made with love, one soap flower at a time.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ===================== FLOATING WHATSAPP BUTTON ===================== -->
+<a class="float-wa pulse" id="floatWaBtn" href="#" target="_blank" rel="noopener" aria-label="Chat with JS Flower on WhatsApp">
+  <svg viewBox="0 0 24 24" fill="#fff"><path d="M12.04 2c-5.52 0-10 4.48-10 10 0 1.77.46 3.5 1.34 5.02L2 22l5.13-1.35A9.96 9.96 0 0 0 12.04 22c5.52 0 10-4.48 10-10s-4.48-10-10-10Zm0 18.2c-1.6 0-3.16-.43-4.52-1.24l-.32-.19-3.05.8.82-2.97-.21-.31A8.17 8.17 0 0 1 3.84 12c0-4.53 3.68-8.2 8.2-8.2 4.53 0 8.2 3.67 8.2 8.2 0 4.52-3.67 8.2-8.2 8.2Zm4.5-6.13c-.25-.12-1.45-.72-1.68-.8-.22-.08-.39-.12-.55.13-.16.24-.63.8-.78.96-.14.16-.29.18-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.24-1.47-1.38-1.72-.14-.24-.02-.38.11-.5.11-.11.25-.29.37-.43.12-.15.16-.25.24-.41.08-.16.04-.31-.02-.43-.06-.12-.55-1.33-.76-1.82-.2-.48-.4-.42-.55-.42-.14 0-.31-.02-.47-.02-.16 0-.43.06-.66.31-.22.24-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.16 1.75 2.67 4.24 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.45-.59 1.65-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.47-.28Z"/></svg>
+</a>
+
+<!-- ===================== PRODUCT DETAIL OVERLAY ===================== -->
+<div class="detail-overlay" id="detailOverlay">
+  <div class="detail-top">
+    <button class="back-btn" id="detailBack">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+      Back to collection
+    </button>
+  </div>
+  <div class="detail-inner">
+    <div class="detail-media" id="detailMedia"></div>
+    <div class="detail-copy">
+      <h2 id="detailName"></h2>
+      <div class="price" id="detailPrice"></div>
+      <ul class="detail-list" id="detailList"></ul>
+      <a class="btn btn-whatsapp detail-cta" id="detailWaBtn" href="#" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12.04 2c-5.52 0-10 4.48-10 10 0 1.77.46 3.5 1.34 5.02L2 22l5.13-1.35A9.96 9.96 0 0 0 12.04 22c5.52 0 10-4.48 10-10s-4.48-10-10-10Zm0 18.2c-1.6 0-3.16-.43-4.52-1.24l-.32-.19-3.05.8.82-2.97-.21-.31A8.17 8.17 0 0 1 3.84 12c0-4.53 3.68-8.2 8.2-8.2 4.53 0 8.2 3.67 8.2 8.2 0 4.52-3.67 8.2-8.2 8.2Zm4.5-6.13c-.25-.12-1.45-.72-1.68-.8-.22-.08-.39-.12-.55.13-.16.24-.63.8-.78.96-.14.16-.29.18-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.24-1.47-1.38-1.72-.14-.24-.02-.38.11-.5.11-.11.25-.29.37-.43.12-.15.16-.25.24-.41.08-.16.04-.31-.02-.43-.06-.12-.55-1.33-.76-1.82-.2-.48-.4-.42-.55-.42-.14 0-.31-.02-.47-.02-.16 0-.43.06-.66.31-.22.24-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.16 1.75 2.67 4.24 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.45-.59 1.65-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.47-.28Z"/></svg>
+        Order on WhatsApp
+      </a>
+      <p class="detail-note">You'll chat directly with JS Flower to confirm payment, delivery and any custom requests.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+/* =========================================================
+   CONFIG — edit these to update contact details site-wide
+========================================================= */
+const CONFIG = {
+  brandName: "JS Flower",
+  whatsappNumber: "60123456789", // <-- replace with real number, digits only, country code first
+  instagramUrl: "https://instagram.com/",
+  tiktokUrl: "https://tiktok.com/",
+  contactUrl: "https://instagram.com/"
+};
+
+function waLink(message){
+  return `https://wa.me/${CONFIG.whatsappNumber}?text=${encodeURIComponent(message)}`;
+}
+const GENERIC_MSG = `Hi ${CONFIG.brandName}! I'd love to know more about your soap flower bouquets 💐`;
+
+/* =========================================================
+   PRODUCT DATA
+========================================================= */
+const CATEGORIES = ["All Flowers","Soap Flowers","Bouquets","Gift Flowers","Best Sellers","New Arrivals"];
+
+const PRODUCTS = [
+  { id:"pink-rose", name:"Pink Rose Bouquet", price:59, hue:"#E8AFC0", petalHue:"#F6D8E1", tags:["Soap Flowers","Bouquets","Best Sellers"], badge:"Best Seller" },
+  { id:"blue-romance", name:"Blue Romance Bouquet", price:69, hue:"#9FB6D9", petalHue:"#D6E1F1", tags:["Soap Flowers","Bouquets","New Arrivals"], badge:"New" },
+  { id:"ivory-charm", name:"Ivory Charm Bouquet", price:55, hue:"#E8DFC8", petalHue:"#F6F1E3", tags:["Soap Flowers","Bouquets"], badge:null },
+  { id:"lavender-dream", name:"Lavender Dream Bouquet", price:65, hue:"#C7ABDA", petalHue:"#E7D8F0", tags:["Soap Flowers","Bouquets","New Arrivals"], badge:"New" },
+  { id:"sunset-peach", name:"Sunset Peach Bouquet", price:62, hue:"#EFB98C", petalHue:"#F9DEC4", tags:["Soap Flowers","Bouquets"], badge:null },
+  { id:"sage-whisper", name:"Sage Whisper Box", price:49, hue:"#AEBF9A", petalHue:"#DEE7D2", tags:["Soap Flowers","Gift Flowers"], badge:null },
+  { id:"ruby-love", name:"Ruby Love Bouquet", price:72, hue:"#C4677E", petalHue:"#E9B7C4", tags:["Soap Flowers","Bouquets","Best Sellers"], badge:"Best Seller" },
+  { id:"mini-jar", name:"Mini Soap Flower Jar", price:39, hue:"#E3A6A6", petalHue:"#F3D9D4", tags:["Soap Flowers","Gift Flowers"], badge:null },
+];
+
+/* =========================================================
+   SVG FLOWER GENERATOR — one soap-flower rosette, colour-able
+========================================================= */
+function flowerSVG(hue, petalHue, size){
+  size = size || 200;
+  const petals = 6;
+  let paths = "";
+  for(let i=0;i<petals;i++){
+    const angle = (360/petals)*i;
+    paths += `<g transform="rotate(${angle} 100 100)">
+      <ellipse cx="100" cy="58" rx="26" ry="40" fill="${petalHue}" stroke="${hue}" stroke-width="1.5" opacity="0.95"/>
+    </g>`;
+  }
+  return `<svg viewBox="0 0 200 200" width="${size}" height="${size}" role="img" aria-label="Illustration of a soap flower">
+    <circle cx="100" cy="100" r="92" fill="none"/>
+    ${paths}
+    <circle cx="100" cy="100" r="22" fill="${hue}"/>
+    <circle cx="100" cy="100" r="22" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.5"/>
+  </svg>`;
+}
+
+function cardBgStyle(petalHue){
+  return `background:linear-gradient(160deg, ${petalHue}55, #FFFFFF 70%);`;
+}
+
+/* =========================================================
+   STATE
+========================================================= */
+let activeCategory = "All Flowers";
+
+/* =========================================================
+   RENDER: category nav (header + grid + mobile)
+========================================================= */
+function renderCategoryNav(){
+  const headerCats = document.getElementById("headerCats");
+  const gridCats = document.getElementById("gridCats");
+  const mobileCats = document.getElementById("mobileCats");
+  headerCats.innerHTML = "";
+  gridCats.innerHTML = "";
+  mobileCats.innerHTML = "";
+
+  CATEGORIES.forEach(cat=>{
+    const hBtn = document.createElement("button");
+    hBtn.textContent = cat;
+    hBtn.className = cat===activeCategory ? "active" : "";
+    hBtn.addEventListener("click", ()=> setCategory(cat));
+    headerCats.appendChild(hBtn);
+
+    const gBtn = document.createElement("button");
+    gBtn.textContent = cat;
+    gBtn.className = "pill" + (cat===activeCategory ? " active" : "");
+    gBtn.addEventListener("click", ()=> setCategory(cat));
+    gridCats.appendChild(gBtn);
+
+    const mBtn = document.createElement("button");
+    mBtn.textContent = cat;
+    mBtn.className = "pill" + (cat===activeCategory ? " active" : "");
+    mBtn.addEventListener("click", ()=> setCategory(cat));
+    mobileCats.appendChild(mBtn);
+  });
+}
+
+function setCategory(cat){
+  activeCategory = cat;
+  renderCategoryNav();
+  renderGrid();
+  document.getElementById("collection").scrollIntoView({behavior:"smooth", block:"start"});
+}
+
+/* =========================================================
+   RENDER: product grid
+========================================================= */
+function renderGrid(){
+  const grid = document.getElementById("productGrid");
+  grid.innerHTML = "";
+  const filtered = activeCategory==="All Flowers" ? PRODUCTS : PRODUCTS.filter(p=>p.tags.includes(activeCategory));
+
+  if(filtered.length===0){
+    grid.innerHTML = `<div class="empty-state">No flowers in this category just yet — check back soon 🌸</div>`;
+    return;
+  }
+
+  filtered.forEach(p=>{
+    const card = document.createElement("div");
+    card.className = "card";
+    card.innerHTML = `
+      <div class="card-media" style="${cardBgStyle(p.petalHue)}">
+        ${p.badge ? `<span class="badge">${p.badge}</span>` : ""}
+        ${flowerSVG(p.hue, p.petalHue, 140)}
+      </div>
+      <h3>${p.name}</h3>
+      <div class="price">RM${p.price}</div>
+      <button class="see-details" data-id="${p.id}">See Details</button>
+    `;
+    card.querySelector(".see-details").addEventListener("click", ()=> openDetail(p.id));
+    grid.appendChild(card);
+  });
+}
+
+/* =========================================================
+   PRODUCT DETAIL OVERLAY
+========================================================= */
+function openDetail(id){
+  const p = PRODUCTS.find(x=>x.id===id);
+  if(!p) return;
+
+  document.getElementById("detailMedia").style.background = `linear-gradient(160deg, ${p.petalHue}55, #FFFFFF 70%)`;
+  document.getElementById("detailMedia").innerHTML = flowerSVG(p.hue, p.petalHue, 220);
+  document.getElementById("detailName").textContent = p.name;
+  document.getElementById("detailPrice").textContent = `RM${p.price}`;
+  document.getElementById("detailList").innerHTML = `
+    <li>💐 Mix soap flowers</li>
+    <li>💐 30cm height</li>
+    <li>💐 West Malaysia postage 🇲🇾 RM8 (1–5 working days)</li>
+    <li>💐 Johor self pick up / Lalamove delivery</li>
+  `;
+  const msg = `Hi ${CONFIG.brandName}! I'm interested in ordering ${p.name}. May I know more details? 💐`;
+  document.getElementById("detailWaBtn").href = waLink(msg);
+
+  document.getElementById("detailOverlay").classList.add("open");
+  document.body.style.overflow = "hidden";
+  history.pushState({product:id}, "", `#product-${id}`);
+}
+
+function closeDetail(skipHistory){
+  document.getElementById("detailOverlay").classList.remove("open");
+  document.body.style.overflow = "";
+  if(!skipHistory && location.hash.startsWith("#product-")){
+    history.pushState({}, "", location.pathname + location.search);
+  }
+}
+
+document.getElementById("detailBack").addEventListener("click", ()=> closeDetail());
+window.addEventListener("popstate", ()=>{
+  if(!location.hash.startsWith("#product-")){
+    closeDetail(true);
+  }
+});
+
+/* Deep-link support: open detail directly if URL has #product-id on load */
+function checkInitialHash(){
+  if(location.hash.startsWith("#product-")){
+    const id = location.hash.replace("#product-","");
+    if(PRODUCTS.find(p=>p.id===id)) openDetail(id);
+  }
+}
+
+/* =========================================================
+   WHATSAPP LINKS + HEADER SCROLL + MOBILE MENU
+========================================================= */
+function wireWhatsappLinks(){
+  const genericHref = waLink(GENERIC_MSG);
+  ["headerWaBtn","heroWaBtn","footerWaBtn","footerWaLink","floatWaBtn"].forEach(id=>{
+    const el = document.getElementById(id);
+    if(el) el.href = genericHref;
+  });
+  document.getElementById("footerContactLink").href = CONFIG.contactUrl;
+  document.querySelectorAll('a[href="#"][target="_blank"]').forEach(a=>{
+    if(!a.id) { /* instagram/tiktok placeholders */ }
+  });
+  document.querySelectorAll(".footer-col a")[0].href = CONFIG.instagramUrl;
+  document.querySelectorAll(".footer-col a")[1].href = CONFIG.tiktokUrl;
+}
+
+window.addEventListener("scroll", ()=>{
+  document.getElementById("siteHeader").classList.toggle("scrolled", window.scrollY > 8);
+});
+
+document.getElementById("hamburgerBtn").addEventListener("click", ()=>{
+  const wrap = document.getElementById("mobileCatsWrap");
+  wrap.style.display = wrap.style.display==="none" ? "block" : "none";
+});
+
+/* remove pulse animation after it plays once */
+setTimeout(()=>{
+  const fw = document.getElementById("floatWaBtn");
+  if(fw) fw.classList.remove("pulse");
+}, 2200);
+
+/* =========================================================
+   INIT
+========================================================= */
+document.getElementById("year").textContent = new Date().getFullYear();
+document.getElementById("heroFlower").innerHTML = flowerSVG("#C4677E", "#F3D9D4", 320);
+document.getElementById("aboutFlower").innerHTML = flowerSVG("#93A382", "#DEE7D2", 260);
+renderCategoryNav();
+renderGrid();
+wireWhatsappLinks();
+checkInitialHash();
+</script>
+
+</body>
+</html>
