@@ -726,14 +726,37 @@ checkInitialHash();
 
   const _supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
-  async function loadProducts() {
-    const { data: products, error } = await _supabase.from('products').select('*');
-    if (error) {
-      console.error('获取商品失败:', error);
-    } else {
-      console.log('成功连接 Supabase！拿到的商品：', products);
-    }
+async function loadProducts() {
+  const { data: products, error } = await _supabase.from('products').select('*');
+  
+  if (error) {
+    console.error('获取商品失败:', error);
+    return;
   }
+
+  // 找到页面上展示花束卡片的容器
+  const gridContainer = document.getElementById('productGrid') || document.querySelector('.grid') || document.querySelector('.products-grid');
+  
+  if (gridContainer && products.length > 0) {
+    // 清空静态数据
+    gridContainer.innerHTML = '';
+
+    // 将 Supabase 的数据生成 HTML 插入页面
+    products.forEach(item => {
+      const card = document.createElement('div');
+      card.className = 'card';
+      card.innerHTML = `
+        <img src="${item.image_url || 'https://via.placeholder.com/300'}" alt="${item.name}">
+        <div class="card-body">
+          <h3>${item.name}</h3>
+          <p class="description">${item.description || ''}</p>
+          <p class="price">RM ${item.price}</p>
+        </div>
+      `;
+      gridContainer.appendChild(card);
+    });
+  }
+}
 
   document.addEventListener('DOMContentLoaded', loadProducts);
 </script>
